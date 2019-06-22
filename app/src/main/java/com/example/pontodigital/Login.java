@@ -27,9 +27,9 @@ public class Login extends AppCompatActivity {
         public void onClick(View view) {
             Intent homeIntent = new Intent(Login.this, Home.class);
             EditText nome = findViewById(R.id.inNome);
-            EditText mat = findViewById(R.id.inNome);
+            EditText mat = findViewById(R.id.inMat);
             String txtNome = nome.getText().toString();
-            String txtMat = nome.getText().toString();
+            String txtMat = mat.getText().toString();
             if (!txtNome.matches("") && !txtMat.matches("")) {
                 Bundle bundle = new Bundle();
                 bundle.putString("nome", txtNome.toUpperCase());
