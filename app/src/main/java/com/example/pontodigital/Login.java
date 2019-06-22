@@ -1,11 +1,13 @@
 package com.example.pontodigital;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 
 public class Login extends AppCompatActivity {
 
@@ -17,13 +19,26 @@ public class Login extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab.setOnClickListener(clicknext);
     }
+
+    private View.OnClickListener clicknext = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent homeIntent = new Intent(Login.this, Home.class);
+            EditText nome = findViewById(R.id.inNome);
+            EditText mat = findViewById(R.id.inNome);
+            String txtNome = nome.getText().toString();
+            String txtMat = nome.getText().toString();
+            if (!txtNome.matches("") && !txtMat.matches("")) {
+                Bundle bundle = new Bundle();
+                bundle.putString("nome", txtNome.toUpperCase());
+                bundle.putString("mat", txtMat);
+                homeIntent.putExtras(bundle);
+                startActivity(homeIntent);
+                finish();
+            }
+        }
+    };
 
 }
