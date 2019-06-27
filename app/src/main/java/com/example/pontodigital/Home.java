@@ -59,7 +59,7 @@ public class Home extends AppCompatActivity {
                 if (!photoDirectory.exists()) {
                     photoDirectory.mkdir();
                 }
-                String photoName = getPhotName();  /*Nome da foto*/
+                String photoName = ("Entrada: " + getPhotName() + ".png");  /*Nome da foto*/
                 File imgFile = new File(photoDirectory, photoName);
                 //Uri uriPhoto = Uri.fromFile(imgFile);
                 Uri uriPhoto = FileProvider.getUriForFile(Home.this, BuildConfig.APPLICATION_ID + ".provider",imgFile);
@@ -76,7 +76,7 @@ public class Home extends AppCompatActivity {
                 if (!photoDirectory.exists()) {
                     photoDirectory.mkdir();
                 }
-                String photoName = getPhotName();  /*Nome da foto*/
+                String photoName = ("Saída: " + getPhotName() + ".png");  /*Nome da foto*/
                 File imgFile = new File(photoDirectory, photoName);
                 //Uri uriPhoto = Uri.fromFile(imgFile);
                 Uri uriPhoto = FileProvider.getUriForFile(Home.this, BuildConfig.APPLICATION_ID + ".provider",imgFile);
@@ -90,7 +90,7 @@ public class Home extends AppCompatActivity {
         String location = getLocation();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String timestamp = sdf.format(new Date());
-        return ("Entrada:" + nome + "-" + matricula + "-"+ timestamp + "-" + "coordenadas: " + location);
+        return (nome + "-" + matricula + "-"+ timestamp + "-" + "coordenadas: " + location);
     }
 
     private String getLocation() {
